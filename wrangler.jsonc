@@ -12,5 +12,7 @@
 	"observability": {
 		"enabled": true
 	},
-	"vars": {}
+	"vars": {
+		"SITE_URL": "https://localhost:4323"
+	}
 }

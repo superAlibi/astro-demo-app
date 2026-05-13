@@ -2,8 +2,7 @@
 import "../styles/global.css";
 import { PUBLIC_DEMO_MESSAGE } from "astro:env/client";
 import { env } from "cloudflare:workers";
-import { SITE_URL, getSecret } from "astro:env/server";
-const CONSSECRET_URL = getSecret("SITE_URL");
+import { SITE_URL } from "astro:env/server";
 ---
 
 <html lang="zh-CN">
@@ -35,8 +34,7 @@ const CONSSECRET_URL = getSecret("SITE_URL");
 			></span
 		>
 		<span class="mt-2 block text-base text-white"
-			>astro SITE_URL env: <span class="text-emerald-400"
-				>{CONSSECRET_URL}{SITE_URL}</span
+			>astro SITE_URL env: <span class="text-emerald-400">{SITE_URL}</span
 			></span
 		>
 	</body>
