@@ -2,7 +2,8 @@
 import "../styles/global.css";
 import { PUBLIC_DEMO_MESSAGE } from "astro:env/client";
 import { env } from "cloudflare:workers";
-import { SITE_URL } from "astro:env/server";
+import { DEPLOY_HOSTNAME } from "astro:env/server";
+console.log(import.meta.env.DEPLOY_HOSTNAME);
 ---
 
 <html lang="zh-CN">
@@ -29,12 +30,13 @@ import { SITE_URL } from "astro:env/server";
 			>
 		</p>
 		<span class="mt-2 block text-base text-white"
-			>wrangler SITE_URL env: <span class="text-emerald-400"
-				>{env.SITE_URL}</span
+			>wrangler DEPLOY_HOSTNAME env: <span class="text-emerald-400"
+				>{env.DEPLOY_HOSTNAME}</span
 			></span
 		>
 		<span class="mt-2 block text-base text-white"
-			>astro SITE_URL env: <span class="text-emerald-400">{SITE_URL}</span
+			>astro DEPLOY_HOSTNAME env: <span class="text-emerald-400"
+				>{DEPLOY_HOSTNAME}</span
 			></span
 		>
 	</body>

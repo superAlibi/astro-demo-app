@@ -4,6 +4,7 @@ import { defineConfig, envField } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://localhost:4321',
 	adapter: cloudflare({
 		imageService: 'compile'
 	}),
@@ -17,9 +18,8 @@ export default defineConfig({
 				optional: true,
 				context: "client",
 				access: "public",
-				default: "当前为 astro.config 中的默认值（未设置 .env）",
 			}),
-			SITE_URL: envField.string({
+			DEPLOY_HOSTNAME: envField.string({
 				optional: true,
 				context: "server",
 				access: 'public',
