@@ -1,0 +1,43 @@
+---
+import "../styles/global.css";
+import { PUBLIC_DEMO_MESSAGE } from "astro:env/client";
+import { env } from "cloudflare:workers";
+import { SITE_URL, getSecret } from "astro:env/server";
+const CONSSECRET_URL = getSecret("SITE_URL");
+---
+
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body class="min-h-screen bg-slate-950 p-8 text-slate-100">
+		<h1 class="text-3xl font-bold text-sky-400">
+			Astro + TypeScript + Tailwind
+		</h1>
+		<p
+			class="mt-4 max-w-xl rounded-lg border border-slate-700 bg-slate-900/80 p-4 text-sm leading-relaxed text-slate-300"
+		>
+			<span class="font-semibold text-emerald-400"
+				>astro:env（client）</span
+			>
+			<br />
+			<span class="mt-2 block text-base text-white"
+				>{PUBLIC_DEMO_MESSAGE}</span
+			>
+		</p>
+		<span class="mt-2 block text-base text-white"
+			>wrangler SITE_URL env: <span class="text-emerald-400"
+				>{env.SITE_URL}</span
+			></span
+		>
+		<span class="mt-2 block text-base text-white"
+			>astro SITE_URL env: <span class="text-emerald-400"
+				>{CONSSECRET_URL}{SITE_URL}</span
+			></span
+		>
+	</body>
+</html>
