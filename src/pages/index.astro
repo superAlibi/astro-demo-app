@@ -1,9 +1,8 @@
 ---
 import "../styles/global.css";
-import { PUBLIC_DEMO_MESSAGE } from "astro:env/client";
+import { DEPLOY_SECRET } from "astro:env/server";
+// import { DEPLOY_HOSTNAME } from "astro:env/server"; // error
 import { env } from "cloudflare:workers";
-import { DEPLOY_HOSTNAME } from "astro:env/server";
-console.log(import.meta.env.DEPLOY_HOSTNAME);
 ---
 
 <html lang="zh-CN">
@@ -22,22 +21,20 @@ console.log(import.meta.env.DEPLOY_HOSTNAME);
 			class="mt-4 max-w-xl rounded-lg border border-slate-700 bg-slate-900/80 p-4 text-sm leading-relaxed text-slate-300"
 		>
 			<span class="font-semibold text-emerald-400"
-				>astro:env（client）</span
+				>astro:env（server）</span
 			>
 			<br />
-			<span class="mt-2 block text-base text-white"
-				>{PUBLIC_DEMO_MESSAGE}</span
-			>
+			<span class="mt-2 block text-base text-white">{DEPLOY_SECRET}</span>
 		</p>
 		<span class="mt-2 block text-base text-white"
 			>wrangler DEPLOY_HOSTNAME env: <span class="text-emerald-400"
 				>{env.DEPLOY_HOSTNAME}</span
 			></span
 		>
-		<span class="mt-2 block text-base text-white"
+		<!-- <span class="mt-2 block text-base text-white"
 			>astro DEPLOY_HOSTNAME env: <span class="text-emerald-400"
 				>{DEPLOY_HOSTNAME}</span
 			></span
-		>
+		> -->
 	</body>
 </html>
