@@ -1,4 +1,6 @@
 ---
+// 预渲染阶段没有真实边缘请求，cf 不可用；需按请求 SSR 才能读到国家
+export const prerender = false;
 import "../styles/global.css";
 import { DEPLOY_SECRET } from "astro:env/server";
 // import { DEPLOY_HOSTNAME } from "astro:env/server"; // error
