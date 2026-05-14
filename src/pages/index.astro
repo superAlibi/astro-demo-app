@@ -3,6 +3,7 @@ import "../styles/global.css";
 import { DEPLOY_SECRET } from "astro:env/server";
 // import { DEPLOY_HOSTNAME } from "astro:env/server"; // error
 import { env } from "cloudflare:workers";
+const country = Astro.request.cf?.country;
 ---
 
 <html lang="zh-CN">
@@ -36,5 +37,6 @@ import { env } from "cloudflare:workers";
 				>{DEPLOY_HOSTNAME}</span
 			></span
 		> -->
+		your are from <span class="text-emerald-400">{country}</span>
 	</body>
 </html>
